@@ -1,8 +1,41 @@
 <html>
-    <head>ES 1 </head>
+   
     <body>
-        installazione di Prettier(alt+shift+f), live server(alt+l,alt+o), auto close tag, auto raneame tag, auto complete tag
-        <button onclick="function(){
-           console.log('click')}">cliccami</button>
+        <div id="div1">
+            <p>Per cortesia non cliccare</p>
+        </div>
+        <!-- installazione di Prettier(alt+shift+f), live server(alt+l,alt+o), auto close tag, auto raneame tag, auto complete tag -->
+
+        <!-- bottone senza script -->
+        <!-- <button onclick="(function(){
+            console.log('click da evento')})()">
+            cliccami da evento
+        </button> -->
+        
+        <button id = "btn3", onclick="func_click_listen('script')">cliccami da script</button>
+        <!-- <button id="btn3">cliccami da listener</button>  -->
+        
+        <script>
+            // var func_click = function(stringa){
+            //     //operazioni 
+            //     console.log('click da script');
+            // };
+            //func_click()  
+            //dichiaazione e eseguzione contemporanea 
+            var func_click_listen = function (stringa) {
+                console.log("click da "+ stringa);
+            }
+
+            var button3 = document.getElementById('btn3');
+            button3.addEventListener("click", function(){ 
+                func_click_listen("listener");
+                document.getElementById("div1").setAttribute("style", "background-color: pink");
+                document.getElementById("div1").innerHTML = "<h1>ti avevo detto di non cliccare</h1>";
+
+                button3.setAttribute("style", "background-color: red");
+                
+            });
+            
+        </script>
     </body>
 </html>
